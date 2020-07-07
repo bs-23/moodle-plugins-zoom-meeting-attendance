@@ -228,7 +228,10 @@ class get_meeting_reports extends \core\task\scheduled_task {
 
         // Did not find a previous match.
         if (empty($moodleuserid)) {
-            if (!empty($participant->user_email) && ($moodleuserid =
+            if ( !empty($participant->name) && $moodleuserObj = $this->getMoodleUserFromName($participant->name)){
+                $moodleuserid = $moodleuserObj->id;
+                $name = strtoupper(fullname($moodleuserObj));
+            }else if (!empty($participant->user_email) && ($moodleuserid =
                     array_search(strtoupper($participant->user_email), $emails))) {
                 // Found email from list of enrolled users.
                 $name = $names[$moodleuserid];
@@ -272,6 +275,23 @@ class get_meeting_reports extends \core\task\scheduled_task {
             'leave_time' => strtotime($participant->leave_time),
             'duration' => $participant->duration,
         );
+    }
+
+    /**
+     * @param string $name
+     * @return bool|false|mixed|\stdClass|null
+     * @throws \dml_exception
+     */
+    public function getMoodleUserFromName(string $name)
+    {
+        global $DB;
+        $trim_Name = trim($name);
+        $user_id_optional = mb_substr($trim_Name, 0, 6);
+        if (is_numeric($user_id_optional)){
+            $user = $DB->get_record('user',['idnumber' => $user_id_optional],"*",IGNORE_MISSING);
+            return  $user;
+        }
+        return null;
     }
 
     /**
