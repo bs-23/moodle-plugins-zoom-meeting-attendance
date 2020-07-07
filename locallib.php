@@ -325,20 +325,22 @@ function zoom_get_participants_report($detailsid) {
         'detailsid' => $detailsid
     ];
     $participants = $DB->get_records_sql($sql, $params);
+    // For report modification this line commented
+    //    return $participants;
+
+    // this is the new implementation for modified report
     $uParticipants = [];
     foreach ($participants as $participant):
-        $u_identifier = generate_unique_from_email_name($participant);
-        if (array_key_exists($u_identifier,$uParticipants)){
-            $participant_arr_val = $uParticipants[$u_identifier];
+        $unique_identifier = generate_unique_from_email_name($participant);
+        if (array_key_exists($unique_identifier,$uParticipants)){
+            $participant_arr_val = $uParticipants[$unique_identifier];
             $participant_arr_val->duration = $participant_arr_val->duration + $participant->duration;
             $participant_arr_val->leave_time = $participant->leave_time;
-            $uParticipants[$u_identifier] = $participant_arr_val;
+            $uParticipants[$unique_identifier] = $participant_arr_val;
             continue;
         }
-        $uParticipants[$u_identifier] = $participant;
-
+        $uParticipants[$unique_identifier] = $participant;
     endforeach;
-//    return $participants;
     return $uParticipants;
 }
 
