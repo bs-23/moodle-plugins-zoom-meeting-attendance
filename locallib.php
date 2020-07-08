@@ -319,7 +319,7 @@ function zoom_get_participants_report($detailsid) {
                    zmp.uuid
               FROM {zoom_meeting_participants} zmp
              WHERE zmp.detailsid = :detailsid
-             ORDER BY zmp.id, zmp.leave_time asc 
+             ORDER BY zmp.id asc 
              
     ';
     $params = [
