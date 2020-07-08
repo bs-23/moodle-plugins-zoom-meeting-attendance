@@ -286,7 +286,7 @@ class get_meeting_reports extends \core\task\scheduled_task {
     {
         global $DB;
         $trim_Name = trim($name);
-        $user_id_optional = mb_substr($trim_Name, 0, 6);
+        $user_id_optional = mb_substr($trim_Name, 0, 5);
         if (is_numeric($user_id_optional)){
             $user = $DB->get_record('user',['idnumber' => $user_id_optional],"*",IGNORE_MISSING);
             return  $user;
