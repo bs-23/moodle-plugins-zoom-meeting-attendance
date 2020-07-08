@@ -346,5 +346,5 @@ function zoom_get_participants_report($detailsid) {
 }
 
 function generate_unique_from_email_name(stdClass $participant){
-    return str_replace(" ","_",$participant->name) .'_'.$participant->user_email;
+    return $participant->userid.'_'.str_replace(" ","_",$participant->name);
 }
