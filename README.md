@@ -1,6 +1,6 @@
 # Intro
 
-This is an extension of Moodle [Zoom plugin](https://moodle.org/plugins/mod_zoom). We update it for attendance report and marking for the students. 
+This is an extension of Moodle [Zoom plugin](https://moodle.org/plugins/mod_zoom). Updated it for some custom report like attendance, date wise filter and attendance mark based on percentage for the students.
 
 # About Original Plugin
 Zoom is the web and app based video conferencing service (http://zoom.us). This plugin offers tight integration with Moodle, supporting meeting creation, synchronization, grading, and backup/restore.
@@ -54,5 +54,9 @@ More details at https://moodle.org/plugins/mod_zoom
 
 <p align="center">
     <img src="https://i.imgur.com/4C5GRCz.png">
+    <br/>
+    <br/>
+    Attendance sheet with marking
+    <br/>
     <img src="https://i.imgur.com/5dX1Qj9.png">
 </p>
