@@ -1,6 +1,6 @@
 # Intro
 
-This is an extension of Moodle [Zoom plugin] (https://moodle.org/plugins/mod_zoom). We update it for attendance report and marking for the students. 
+This is an extension of Moodle [Zoom plugin](https://moodle.org/plugins/mod_zoom). We update it for attendance report and marking for the students. 
 
 # About Original Plugin
 Zoom is the web and app based video conferencing service (http://zoom.us). This plugin offers tight integration with Moodle, supporting meeting creation, synchronization, grading, and backup/restore.
@@ -36,8 +36,23 @@ More details at https://moodle.org/plugins/mod_zoom
 - Student wise unified attendance report
 - Attendance marking for all session
 
+## Report Path
+
+### For List of all session of a online classes
+
+```Dashboard->My courses->Your Course Name->General->Your Zoom Session-> Sessions```
+
+### For Attendance Report
+
+```Dashboard->My courses->Your Course Name->General->Your Zoom Session-> Attendance Report```
+
+### For Participants Report of a session
+
+```Dashboard->My courses->Your Course Name->General->Your Zoom Session-> Participants```
+
+## Example report:
 
 <p align="center">
-<img src="https://i.imgur.com/Io7VyM4.png">
+    <img src="https://i.imgur.com/4C5GRCz.png">
+    <img src="https://i.imgur.com/5dX1Qj9.png">
 </p>
-
